@@ -1,0 +1,28 @@
+﻿<Window x:Class="LaboratoryMain.pages.takeBio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaboratoryMain.pages"
+        mc:Ignorable="d"
+        Title="Принять биоматериал" Height="460" Width="810"
+        Icon="/Res/Icons/labi.png">
+    <Grid >
+        <Label  Content="Код пробирки:" HorizontalAlignment="Left" Margin="226,92,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="prob" HorizontalAlignment="Left" Margin="353,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" Height="22"/>
+        
+        <Label  Content="Логин пациента:" HorizontalAlignment="Left" Margin="226,123,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.539,0.451"/>
+        <!--Выбор пациента-->
+        <ComboBox x:Name="patients" DisplayMemberPath="login" HorizontalAlignment="Left" Margin="353,127,0,0" Text="" VerticalAlignment="Top" Width="216" Height="22" SelectionChanged="patients_SelectionChanged"/>
+        <Label Content="Добавить пациента." Margin="354,154,322,240" MouseUp="Label_MouseUp" />
+        <Label  Content="Услуга:" HorizontalAlignment="Left" Margin="226,181,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="serviceList" DisplayMemberPath="name" HorizontalAlignment="Left" Margin="354,186,0,0" Text="" VerticalAlignment="Top" Width="214" Height="22"/>
+        <!--Кнопки управления-->
+        <Button Background="#FF34014E" Foreground="White" x:Name="btn_reg" Content="Добавить услугу" HorizontalAlignment="Left" Margin="409,258,0,0" VerticalAlignment="Top" Height="30" Width="159" Click="take_bio_Click"/>
+        <Button Background="#FF34014E" Foreground="White" x:Name="btn_add" Content="Создать заказ" HorizontalAlignment="Left" Margin="226,258,0,0" VerticalAlignment="Top" Height="30" Width="159" Click="createOrder_Click"/>
+        <ComboBox x:Name="patientOrders" HorizontalAlignment="Left" Margin="354,213,0,0" Text="" VerticalAlignment="Top" Width="214" Height="22" SelectionChanged="patientOrders_SelectionChanged" DisplayMemberPath="id"/>
+        <Label  Content="Номер заказа:" HorizontalAlignment="Left" Margin="226,211,0,0" VerticalAlignment="Top"/>
+        <!--Кнопка для автосоздания кода-->
+        <Button Background="#FF34014E" Foreground="White" Content="Создать" x:Name="createCode" HorizontalAlignment="Left" Margin="488,96,0,0" VerticalAlignment="Top" Width="80" Height="22" Click="createCode_Click"/>
+    </Grid>
+</Window>

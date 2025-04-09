@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d5089267bf9a46889169ee1c63f7d3bb" Name="Diagram1">
+        <EntityTypeShape EntityType="command_laboratoryModel.action" Width="1.5" PointX="13.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.analizator" Width="1.5" PointX="5.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.cheking_account" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.data_analizators" Width="1.5" PointX="8" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.history" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.order" Width="1.5" PointX="11.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.policy_company" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.policy_types" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.role" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.service" Width="1.5" PointX="11.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.status_service" Width="1.5" PointX="9" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="command_laboratoryModel.user" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="command_laboratoryModel.FK_actions_orders" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_actions_services" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_actions_status_service" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_data_analizators_analizators" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_cheking_account_policy_company" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_cheking_account_users" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_history_users" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_orders_status_service" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_orders_users" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_users_policy_company" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_users_policy_types" ManuallyRouted="false" />
+        <AssociationConnector Association="command_laboratoryModel.FK_users_roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

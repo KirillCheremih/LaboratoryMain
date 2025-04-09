@@ -1,0 +1,31 @@
+﻿<Window x:Class="LaboratoryMain.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:easy="clr-namespace:EasyCaptcha.Wpf;assembly=EasyCaptcha.Wpf"
+        xmlns:local="clr-namespace:LaboratoryMain"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        Icon="/Res/Icons/user.png">
+    <Grid >
+        <easy:Captcha x:Name="MyCaptcha" Margin="259,206,259,165"  HorizontalAlignment="Center" Width="276"/>
+
+        <!-- Поля для ввода -->
+        <Label  Content="Логин:" HorizontalAlignment="Left" Margin="258,75,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="loginBox" HorizontalAlignment="Center" Margin="321,75,257,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="214" Height="27"/>
+
+        <Label  Content="Пароль:" HorizontalAlignment="Left" Margin="258,127,0,0" VerticalAlignment="Top"/>
+        <PasswordBox  x:Name="passwordHide" HorizontalAlignment="Center" Margin="321,127,257,0" VerticalAlignment="Top" Width="214" Height="26" />
+        <TextBox  x:Name="passwordVisible" Visibility="Hidden" HorizontalAlignment="Center" Margin="322,127,259,0" VerticalAlignment="Top" Width="213" Height="26" />
+
+        <Button x:Name="auth" Content="Вход" Background="#FF34014E" Foreground="White" HorizontalAlignment="Center" Margin="258,307,257,0" VerticalAlignment="Top" Height="33" Width="277" Click="Button_Click"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="509,127,0,0" VerticalAlignment="Top" Width="30" Click="Button_Click_1" Height="26"/>
+
+        <!-- Для ввода каптчи  -->
+        <TextBox x:Name="Captcha_Textbox" HorizontalAlignment="Center" Margin="259,268,295,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Height="26"/>
+        <Label Content="Добро пожаловать в лабораторию" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="27"/>
+        <Image x:Name="refreshImg" Source="Res/refreshBtn.png" HorizontalAlignment="Left" Height="26" Margin="508,270,0,0" VerticalAlignment="Top" Width="22" MouseUp="Image_MouseUp"/>
+
+    </Grid>
+</Window>

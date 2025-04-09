@@ -1,0 +1,97 @@
+﻿<Window x:Class="LaboratoryMain.pages.Hub"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaboratoryMain.pages"
+        mc:Ignorable="d"
+        Title="Личный кабинет" Height="700" Width="1200" Closing="Window_Closing"
+        Icon="/Res/Icons/user.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="411"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="img_avatar" Width="100" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-2,0,0,0" MouseUp="img_avatar_MouseUp"/>
+                <!--Данные пользователя-->
+                <StackPanel Grid.Column="1">
+                    <TextBlock x:Name="tbl_login" Text="UNKNOWN_USER" FontSize="24" Margin="10, 0" TextWrapping="Wrap" FontWeight="Bold"/>
+                    <TextBlock x:Name="tbl_fio" Text="Иванов Иван Иванович" TextWrapping="Wrap" FontSize="20" Margin="10"/>
+                    <TextBlock x:Name="tbl_role" Text="Роль: UNKNOWN" FontSize="20" Margin="10, 0, 10, 0"/>
+                    <TextBlock x:Name="tbl_timer" Text="Осталось: 00:00" FontSize="20" Margin="10, 10, 10, 0"/>
+                </StackPanel>
+            </Grid>
+            <!--Доступные кнопки по роли-->
+            <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listButtons" MinHeight="200" Height="507">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel>
+                                <Button Content="{Binding Button}" Height="30" Width="395" Background="#012d4e" Foreground="White" HorizontalAlignment="Left" Click="Button_Click"/>
+                            </StackPanel>
+
+                            <Grid.Width>
+                                <Binding Path="ActualWidth" 
+                                    RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ScrollContentPresenter}}" />
+                            </Grid.Width>
+                        </Grid>
+
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Focusable" Value="False"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+            </ListBox>
+        </StackPanel>
+
+        <Grid Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <!--Панель для изменения данных-->
+            <StackPanel Grid.ColumnSpan="3" Margin="10,10,0,-10">
+                <TextBlock Text="Пользовательская информация" FontSize="30" HorizontalAlignment="Center" Margin="10, 10, 10, 45"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Имя" FontSize="20" Padding="15, 6"/>
+                        <TextBlock Text="Фамилия"  FontSize="20" Padding="15, 6"/>
+                        <TextBlock Text="Отчество" FontSize="20" Padding="15, 6"/>
+                        <TextBlock Text="Телефон" FontSize="20" Padding="15, 6"/>
+                        <TextBlock Text="Email" FontSize="20" Padding="15, 6"/>
+                        <TextBlock Text="Image" FontSize="20" Padding="15, 6"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Cursor="">
+                        <TextBox FontSize="20" Padding="5" x:Name="utb_name"/>
+                        <TextBox FontSize="20" Padding="5" x:Name="utb_surname"/>
+                        <TextBox FontSize="20" Padding="5" x:Name="utb_patronymic"/>
+                        <TextBox FontSize="20" Padding="5" x:Name="utb_phone"/>
+                        <TextBox FontSize="20" Padding="5" x:Name="utb_email"/>
+                        <TextBox FontSize="20" Padding="5" x:Name="utb_imagePicker" IsReadOnly="True" MouseUp="utb_imagePicker_MouseUp" Cursor="Hand"/>
+                    </StackPanel>
+                </Grid>
+                <Button Content="Сохранить" Background="#FF34014E" Foreground="White" Padding="80, 10" FontSize="15" Cursor="Hand" Click="Button_Click_1"/>
+                <!--Кнопки управления-->
+            </StackPanel>
+            <Button Content="Выход" x:Name="quit" Background="#FF34014E" Foreground="White" Click="quit_Click" Grid.Column="1" Margin="282,387,0,206"/>
+            <Button Content="Выход из аккаунта" Width="250" Background="#FF34014E" Foreground="White" x:Name="quitAcc" Click="quitAcc_Click" Grid.Column="1" Margin="0,387,313,206"/>
+        </Grid>
+    </Grid>
+</Window>

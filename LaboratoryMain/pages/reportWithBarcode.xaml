@@ -1,0 +1,53 @@
+﻿<Window x:Class="LaboratoryMain.pages.reportWithBarcode"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaboratoryMain.pages"
+        mc:Ignorable="d"
+        Title="Получение штрих-кода" Height="450" Width="800"
+        Icon="/Res/Icons/lab.png">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Заказы">
+                <Grid Background="#FFE5E5E5" Margin="0,0,3,0">
+                    <DataGrid x:Name="patientOrders" AutoGenerateColumns="False" IsReadOnly="True"  Grid.Column="0" Margin="0,10,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Номер заказа" Binding="{Binding id}" Width="200*"/>
+                            <DataGridTextColumn Header="Пациент" Binding="{Binding users.name}" Width="300*"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="200*"/>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding status_service.name}" Width="200*"/>
+                            <DataGridTextColumn Header="Количество дней" Binding="{Binding days}" Width="200*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Услуги">
+                <Grid Background="#ffffff">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="631*"/>
+                        <ColumnDefinition Width="355*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Grid.Column="0" x:Name="patientService" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding id}" Width="200*"/>
+                            <DataGridTextColumn Header="Номер услуги" Binding="{Binding id_service}" Width="200*"/>
+                            <DataGridTextColumn Header="Номер заказа" Binding="{Binding id_order}" Width="200*"/>
+                            <DataGridTextColumn Header="Статус анализа" Binding="{Binding status_service.name}" Width="200*"/>
+                            <DataGridTextColumn Header="Код анализа" Binding="{Binding barcode}" Width="200*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Column="1">
+                        <Label Grid.Column="1" Content="Номер заказа:"/>
+                        <TextBox Grid.Column="1" x:Name="search" Height="30" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" Margin="5"/>
+                        <Button Background="#FF34014E" Foreground="White" Grid.Column="1" x:Name="checkBarcode" Height="30" Content="Штрих-код" Click="checkBarcode_Click" Margin="5"/>
+                        <Image x:Name="img_barcode" Margin="5"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
